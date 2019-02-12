@@ -1,0 +1,49 @@
+
+
+<!-- <button class="btn btn-info" (click)='pageorinetaion()'>{{btnDisplay}}</button>
+<br/> -->
+<form  [formGroup]='displayModeForm' novalidate class="form">
+<br />
+<label class="radio-inline">
+  <input class="form-control" type="radio" value="sp" formControlName="mode">Single Page
+</label>
+<label class="radio-inline">
+  <input class="form-control" type="radio" value="mp" formControlName="mode">Multiple Page
+</label>
+</form>
+
+
+<br/>
+<br/>
+
+<table class="table">
+  
+    <thead>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Price</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of products">
+        <td>
+            {{p.id}}
+          </td>
+          <td>
+            {{p.title}}
+          </td>
+          <td>
+            {{p.price}}
+          </td>
+          <td><button class="btn btn-info" (click)='productdetails(p.id)'>Details</button></td>
+        </tr>
+     
+    </tbody>
+    <div>
+
+    </div>
+    
+</table>
+<div *ngIf='showDetails'>
+    <app-productdetails  (closeit)='closedetails($event)' [id]='selectedid'></app-productdetails>
+</div>
+
